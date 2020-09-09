@@ -1,4 +1,4 @@
-#Equipo 2 MicroBitos
+# Equipo 2 MicroBitos
 Integrantes:
 
 <ul>
