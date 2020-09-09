@@ -1,8 +1,11 @@
-Nombre del equipo: MicroBitos
+#Equipo 2 MicroBitos
 Integrantes:
-Javier Carrillo Trejo
-Christian Josué González Lozano
-Carlos Alberto Martinez Falcon
-Jorge Antonio Cruz González
-Jhonatan Ivan Davila Muro
-Andrea Jaramillo Leiva
+
+<ul>
+  <li>Javier Carrillo Trejo</li>
+<li>Christian Josué González Lozano</li>
+<li>Carlos Alberto Martinez Falcon</li>
+<li>Jorge Antonio Cruz González</li>
+<li>Jhonatan Ivan Davila Muro</li>
+<li>Andrea Jaramillo Leiva</li>
+</ul>
