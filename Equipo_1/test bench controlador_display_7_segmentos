@@ -1,1 +1,22 @@
-
+module tb_controlador_display_7segmentos; 
+    reg [3:0] i_Datos_0;
+    reg [3:0] i_Datos_1;
+    reg [3:0] i_Datos_2;
+    reg [3:0] i_Datos_3;
+    reg i_Reloj;
+    reg i_Reset;
+    wire [6:0] o_Segmentos;
+    wire [3:0] o_Anodo_4_Bits;
+    
+       controlador_display_7segmentos uut(
+     .i_Datos_0(.i_Datos_0),
+     .i_Datos_1(.i_Datos_1),
+     .i_Datos_2(.i_Datos_2),
+     .i_Datos_3(.i_Datos_3),
+     .i_Reloj(i_Reloj),
+     .i_Reset(i_Reset),
+     .o_Segmentos(o_Segmentos),
+     .o_Anodo_4_Bits(o_Anodo_4_Bits)
+  );
+  
+initial 
