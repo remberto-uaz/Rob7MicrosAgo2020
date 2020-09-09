@@ -1,11 +1,16 @@
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
+// Company: Universidad Automona de Zacatecas
 // Engineer: 
-// 
+//Agustín Antonio Palafox Molina
+//José Alfredo Hernadez Dueñas
+//Jesús Francisco Villaseñor Correa
+//José Roberto Novoa López
+//Julio Angel Pérez Dávila
 // Create Date: 09.09.2020 10:37:24
 // Design Name: 
-// Module Name: tb_deco_bin_7seg
+// Module Name:deco_bin_7seg
 // Project Name: 
+//Controlador_display_7segmentos
 // Target Devices: 
 // Tool Versions: 
 // Description: 
@@ -19,7 +24,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module tb_deco_bin_7seg;
+module deco_bin_7seg_tb;
 
     reg [3:0] i_deco;
     wire [6:0] o_segmentos;
