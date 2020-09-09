@@ -8,4 +8,4 @@ Nombres de los integrantes:
   <li> Gustavo Adolfo González Vázquez</li>
   <li> Edwin Daniel Salcedo Cuevas</li>
   <li> Jaime David Jimenez Elías </li>
-
+</ul>
