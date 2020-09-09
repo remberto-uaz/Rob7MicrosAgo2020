@@ -1,4 +1,4 @@
-module tb_controlador_display_7segmentos; 
+module Controlador_display_7Segmentos_tb; 
     reg [3:0] i_Datos_0;
     reg [3:0] i_Datos_1;
     reg [3:0] i_Datos_2;
@@ -22,18 +22,18 @@ module tb_controlador_display_7segmentos;
 initial 
 begin 
   i_Reset= 0;
-         i_Relog  = 0;
+         i_Reloj  = 0;
         i_Datos0= 4'd1;
         i_Datos1= 4'd2;
         i_Datos2= 4'd3;
         i_Datos3= 4'd4;
         #2 
-        i_Relog =1;
+        i_Reloj =1;
         i_Reset = 1;    
 
         
   end 
         always
-       #1 i_Relog  = ! i_Relog ; 
+       #1 i_Reloj  = ! i_Reloj ; 
 endmodule
 
