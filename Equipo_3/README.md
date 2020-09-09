@@ -1,6 +1,7 @@
-Equipo Rocket
-
-César Rodolfo Salazar Rodríguez
-Geovanni López Macias
-Jorge Manuel de Avila Reveles
-Gerardo Frías Donlucas
+# Equipo Rocket
+<ul>
+<li>César Rodolfo Salazar Rodríguez</li>
+<li>Geovanni López Macias</li>
+<li>Jorge Manuel de Avila Reveles</li>
+<li>Gerardo Frías Donlucas</li>
+</ul>
