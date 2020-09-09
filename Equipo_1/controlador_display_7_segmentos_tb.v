@@ -28,7 +28,6 @@ begin
         i_Datos2= 4'd3;
         i_Datos3= 4'd4;
         #2 
-        i_Reloj =1;
         i_Reset = 1;    
 
         
