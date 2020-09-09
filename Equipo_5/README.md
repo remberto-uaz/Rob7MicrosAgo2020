@@ -1,13 +1,15 @@
-EQUIPO 5 N
+# EQUIPO 5 N
 
 Nombre de de los integrantes
 
-Agustin Antonio Palafox Molina
+<ul>
+  <li>Agustin Antonio Palafox Molina</li>
 
-Jose Alfredo Hernadez Dueñas
+<li>Jose Alfredo Hernadez Dueñas</li>
 
-Jesus Francisco Villaseñor Correa
+<li>Jesus Francisco Villaseñor Correa</li>
 
-José Roberto Novoa López
+<li>José Roberto Novoa López</li>
 
-Julio Ángel Pérez Dávila 
+<li>Julio Ángel Pérez Dávila </li>
+</ul>
