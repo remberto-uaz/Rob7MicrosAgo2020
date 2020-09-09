@@ -1,7 +1,7 @@
 # Equipo 1  Alfa
 
 
-Nombres de los integrantes
+Nombres de los integrantes:
 <ul> 
   <li>César Ulises Rosales García </li>
   <li> José Félix Castruita López</li>
