@@ -1,0 +1,40 @@
+module demux_4_a_1_TB;
+    reg [3:0] i_Datos_0;
+    reg [3:0] i_Datos_1;
+    reg [3:0] i_Datos_2;
+    reg [3:0] i_Datos_3;
+    reg [1:0] i_sel;
+    wire [3:0] o_Demux; 
+   
+   demux_4x1 uut (
+     .i_Datos_0(i_Datos_0),
+     .i_Datos_1(i_Datos_1),
+     .i_Datos_2(i_Datos_2),
+     .i_Datos_3(i_Datos_3),
+     .i_sel(i_sel),
+     .o_Demux(o_Demux)
+   );
+   
+   
+    
+    initial 
+      begin 
+        i_Datos_0=0;// inicialización de las entradas
+        i_Datos_1=0;
+        i_Datos_2=0;
+        i_Datos_3=0;
+        i_sel=0;
+ 
+        #2
+        i_Datos_0= 4'd1; //Se asigna valor a las 4 entradas
+        i_Datos_1= 4'd2;
+        i_Datos_2= 4'd3;
+        i_Datos_3= 4'd4;
+        
+        #2 i_sel = 0; // Se actualiza el selector cada 2 tiempos
+        #2 i_sel = 1;
+        #2 i_sel = 2;
+        #2 i_sel = 3;
+        
+     end 
+endmodule
