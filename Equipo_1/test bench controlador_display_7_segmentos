@@ -35,4 +35,5 @@ begin
   end 
         always
        #1 i_Relog  = ! i_Relog ; 
-end
+endmodule
+
