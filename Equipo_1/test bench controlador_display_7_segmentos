@@ -20,3 +20,6 @@ module tb_controlador_display_7segmentos;
   );
   
 initial 
+begin 
+
+end
