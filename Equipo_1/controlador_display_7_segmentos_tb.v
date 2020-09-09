@@ -32,7 +32,7 @@ begin
 
         
   end 
-        always
+    always@(i_Reloj)
        #1 i_Reloj  = ~i_Reloj ; 
 endmodule
 
