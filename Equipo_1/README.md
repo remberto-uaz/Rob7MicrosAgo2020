@@ -7,10 +7,10 @@ Nombres de los integrantes
 
 <li> José Félix Castruita López </li>
 
-</li> Gustavo Adolfo Gonzalez Vázquez</li>
+<li> Gustavo Adolfo Gonzalez Vázquez</li>
 
-</li> Edwin Daniel Salcedo Cuevas</li>
+<li> Edwin Daniel Salcedo Cuevas</li>
 
-</li>Jaime David Jimenez Elías</li>
+<li>Jaime David Jimenez Elías</li>
 
 </ul>
