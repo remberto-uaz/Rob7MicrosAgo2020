@@ -1,4 +1,4 @@
-module Demux
+module demux_4_a_1
     #(parameter n=4)
     (
     input [n-1:0] i_Datos_0,
