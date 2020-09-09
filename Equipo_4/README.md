@@ -1,7 +1,7 @@
 # Equipo 4 Roboticos
 Integrantes:
 
-<li> Clara Veronica Correa  </ li>
+<li> Clara Veronica Guerrero Correa </ li>
 <li> Guillermo Cruz Fernandez </ li>
 <li> Sergio Adad Bernal Adame </ li>
 <li> Nelson Eduardo Coronado Gamez </ li>
