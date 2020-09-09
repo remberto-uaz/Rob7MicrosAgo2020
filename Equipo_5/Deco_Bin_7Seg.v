@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company:Universidad Aut√≥noma de Zacatecas
+// Engineers:
 //Agustin Antonio Palafox Molina
-//Jose Alfredo Hernadez DueÒas
-//Jesus Francisco VillaseÒor Correa
-//JosÈ Roberto Novoa LÛpez
-//Julio ¡ngel PÈrez D·vila 
+//Jose Alfredo Hernadez Due√±as
+//Jesus Francisco Villase√±or Correa
+//Jos√© Roberto Novoa L√≥pez
+//Julio √Ångel P√©rez D√°vila 
 // Create Date: 07.09.2020 10:23:49
 // Design Name: 
 //Deco_Bin_7Seg
@@ -14,9 +14,10 @@
 // Project Name: 
 //Controlador_display_7segmentos
 // Target Devices: 
-// Tool Versions: 
+// Tool Versions:2018.1
 // Description: 
-// 
+//El decodificador  se encargara de transformar  las variables binarias en una serie de salidas que representan un segmento que conforman un display numerico de siete de ellos.
+//Al unir varios segmentos formamos o representamos un digito.
 // Dependencies: 
 // 
 // Revision:
