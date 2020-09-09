@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Company: Universidad Automona de Zacatecas
-// Engineer: 
+// Engineers:
 //Agustín Antonio Palafox Molina
 //José Alfredo Hernadez Dueñas
 //Jesús Francisco Villaseñor Correa
@@ -14,7 +14,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+//Testbench
 // Dependencies: 
 // 
 // Revision:
