@@ -24,12 +24,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module deco_bin_7seg_tb;
+module Deco_Bin_7seg_tb;
 
     reg [3:0] i_deco;
     wire [6:0] o_segmentos;
     
-    deco_bin_7seg uut(
+    Deco_Bin_7seg uut(
         .i_deco(i_deco),      
         .o_segmentos(o_segmentos)
     );
