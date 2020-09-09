@@ -34,6 +34,6 @@ begin
         
   end 
         always
-       #1 i_Reloj  = ! i_Reloj ; 
+       #1 i_Reloj  = ~i_Reloj ; 
 endmodule
 
