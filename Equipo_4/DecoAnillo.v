@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module DecocAnillo(
+module DecoAnillo(
    input i_Reset,
    input i_Clk,
    output [1:0] o_Sel,
