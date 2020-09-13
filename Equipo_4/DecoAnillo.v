@@ -49,40 +49,4 @@ assign o_Sel=(Clk==0)?2'b00:
            (Clk==2)?2'b10:
                     2'b11;
            
-           
-//module DecoAnillo
-//#(parameter dataW = 2, m=4 )
-//(
-//    input  [1:0] i_Clk,
-//    input  i_Reset,
-//    output reg [m-1:0] o_Anodos,
-//    output reg [(dataW -1) : 0] o_Sel
-//    );
-//   always@(i_Clk)
-//        begin
-//            case(i_Clk)
-//                0: begin o_Anodos<= 4'b0001; o_Sel<=2'b00; end
-//                1: begin o_Anodos<= 4'b0010; o_Sel<=2'b01; end
-//                2: begin o_Anodos<=4'b0100; o_Sel<=2'b10; end
-//                default: begin o_Anodos<=4'b1000; o_Sel<=2'b11; end
-
-//            endcase
-
-//        end
-//    always@(*)
-//        begin
-//        if (i_Clk) 
-//            case(i_Clk)
-//                4'd0: begin o_Anodos <= 4'b0111; end
-//                4'd1: begin o_Anodos <= 4'b1011; end
-//                4'd2: begin o_Anodos <= 4'b1101; end
-//                default: begin o_Anodos <= 4'b1110; end
-//        endcase
-//            case(i_Clk)
-//                2'd0: begin o_Sel <= 2'b00; end
-//                2'd1: begin o_Sel <= 2'b01; end
-//                2'd2: begin o_Sel <= 2'b10; end
-//                default: begin o_Sel <=2'b11;end
-//        endcase
-//      end
  endmodule
