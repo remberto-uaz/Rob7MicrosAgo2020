@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: UAZ-IRM
-// Engineer: Guillermo Cruz Fernandez
+// Company: Universidad Autonoma de Zacatecas
+// Engineer: Sergio Adad Bernal Adame
 // 
-// Create Date: 09.09.2020 12:13:07
+// Create Date: 09.09.2020 11:26:32
 // Design Name: 
 // Module Name: tb_DecoAnillo
 // Project Name: 
@@ -21,32 +21,35 @@
 
 
 module tb_DecoAnillo;
-reg [1:0] i_Clk;
-reg i_Reset;
-wire [3:0] o_Anodos;
-wire [1:0] o_Sel;
+    reg i_Clk;
+    reg i_Reset;
+    wire [1:0] o_Sel;
+    wire [3:0] o_Anodos;
 
-//instanciamiento
-DecoAnillo uut(
-    .i_Clk(i_Clk),
-    .i_Reset(i_Reset),
-    .o_Anodos(o_Anodos),
-    .o_Sel(o_Sel)
-);
-
-//inicializacion de las entradas
-
-    initial
+    DecoAnillo uut(
+        .i_Clk(i_Clk),
+        .i_Reset(i_Reset),
+        .o_Sel(o_Sel),
+        .o_Anodos(o_Anodos)
+     );
+    initial 
         begin
-        i_Clk=0;
-        i_Reset=0;
-        
-        
-        #2 i_Clk=2'd0; 
-        #2 i_Clk=2'd1; 
-        #2 i_Clk=2'd2; 
-        #2 i_Clk=2'd3; 
+         i_Clk=0;
+         i_Reset=0;
         #2 i_Reset=1;
-        
-      end
+     end
+   always
+   #1 i_Clk=!i_Clk; 
+    initial 
+        begin
+            #2 i_Clk=4'b0111;
+            #2 i_Clk=4'b1011;
+            #2 i_Clk=4'b1101;
+            #2 i_Clk=4'b1110;
+            #2 i_Clk=2'b00;
+            #2 i_Clk=2'b01;
+            #2 i_Clk=2'b10;
+            #2 i_Clk=2'b11;
+     end
 endmodule
+
