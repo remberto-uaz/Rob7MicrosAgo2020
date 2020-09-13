@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: UAZ
+// Engineer: Alfa
 // 
 // Create Date: 07.09.2020 10:37:39
-// Design Name: 
+// Design Name:controlador_display_7segmentos 
 // Module Name: controlador_display_7segmentos
-// Project Name: 
-// Target Devices: 
+// Project Name: controlador_display_7segmentos
+// Target Devices: Basys 3 
 // Tool Versions: 
 // Description: 
 // 
