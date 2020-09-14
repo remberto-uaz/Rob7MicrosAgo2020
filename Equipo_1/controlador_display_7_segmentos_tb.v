@@ -9,10 +9,10 @@ module Controlador_display_7Segmentos_tb;
     wire [3:0] o_Anodo_4_Bits;
     
     controlador_display_7segmentos uut(
-     .i_Datos_0(.i_Datos_0),
-     .i_Datos_1(.i_Datos_1),
-     .i_Datos_2(.i_Datos_2),
-     .i_Datos_3(.i_Datos_3),
+     .i_Datos_0(i_Datos_0),
+     .i_Datos_1(i_Datos_1),
+     .i_Datos_2(i_Datos_2),
+     .i_Datos_3(i_Datos_3),
      .i_Reloj(i_Reloj),
      .i_Reset(i_Reset),
      .o_Segmentos(o_Segmentos),
