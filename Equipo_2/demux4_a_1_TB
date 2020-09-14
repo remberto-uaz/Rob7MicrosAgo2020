@@ -5,7 +5,7 @@ module demux_4_a_1_TB;
     reg [n-1:0] i_Datos_2;
     reg [n-1:0] i_Datos_3;
     reg [1:0] i_sel;
-    wire [n-1:0] o_Demux; 
+    wire [n-1:0] o_demux; 
    
    demux_4x1 uut (
      .i_Datos_0(i_Datos_0),
@@ -13,7 +13,7 @@ module demux_4_a_1_TB;
      .i_Datos_2(i_Datos_2),
      .i_Datos_3(i_Datos_3),
      .i_sel(i_sel),
-     .o_Demux(o_Demux)
+     .o_demux(o_demux)
    );
    
    
