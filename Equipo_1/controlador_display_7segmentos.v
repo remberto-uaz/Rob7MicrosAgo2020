@@ -30,35 +30,35 @@ module controlador_display_7segmentos(
     output [6:0] o_Segmentos,
     output [3:0] o_Anodo_4_Bits
     );
-    wire [1:0]sel_w;
-    wire [3:0]demux_w;
-    wire preesc_w;
+    wire [1:0]Sel_w;
+    wire [3:0]Demux_w;
+    wire Preesc_w;
   
         Demux4_a_1 mux(
         .i_Datos_0(i_Datos_0),
         .i_Datos_1(i_Datos_1),
         .i_Datos_2(i_Datos_2),
         .i_Datos_3(i_Datos_3),
-        .i_sel(sel_w),
-        .o_demux(demux_w)
+        .i_Sel(Sel_w),
+        .o_Demux(Demux_w)
         );
      
         DecoBin_a_7Seg dec_BCD (
-        .i_deco(demux_w),
-        .o_segmentos(o_Segmentos)
+        .i_Deco(Demux_w),
+        .o_Segmentos(o_Segmentos)
         );
       
         DecoAnillo dec_anillo (
-        .i_clk(preesc_w),
-        .i_reset(i_Reset),
-        .o_anodos(o_Anodo_4_Bits),
-        .o_sel(sel_w)
+        .i_Clk(Preesc_w),
+        .i_Reset(i_Reset),
+        .o_Anodos(o_Anodo_4_Bits),
+        .o_Sel(Sel_w)
         );
 
         Preescalador preesc (
-        .i_clk(i_Reloj),
-        .i_rst(i_Reset),
-        .o_clk_120Hz(preesc_w)
+        .i_Clk(i_Reloj),
+        .i_Rst(i_Reset),
+        .o_Clk_120Hz(Preesc_w)
         );
    
     endmodule
