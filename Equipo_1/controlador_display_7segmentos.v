@@ -44,8 +44,8 @@ module controlador_display_7segmentos(
         );
      
         DecoBin_a_7Seg dec_BCD (
-        .i_Deco(demux_w),
-        .o_Segmentos(o_Segmentos)
+        .i_deco(demux_w),
+        .o_segmentos(o_Segmentos)
         );
       
         DecoAnillo dec_anillo (
