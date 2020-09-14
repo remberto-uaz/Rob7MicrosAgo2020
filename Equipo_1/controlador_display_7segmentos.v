@@ -57,7 +57,7 @@ module controlador_display_7segmentos(
 
         Preescalador preesc (
         .i_Clk(i_Reloj),
-        .i_Rst(i_Reset),
+        .i_Reset(i_Reset),
         .o_Clk_120Hz(Preesc_w)
         );
    
