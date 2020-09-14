@@ -9,7 +9,7 @@ module demux_4_a_1
     output reg [n-1:0] o_Demux // salida
     );
     
-    always @*
+    always @(i_Datos_0, i_Datos_1, i_Datos_2, i_Datos_3, i_sel)
     begin
         case(i_sel) 
             2'b00: begin o_Demux <= i_Datos_0; end
