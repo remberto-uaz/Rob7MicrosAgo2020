@@ -6,7 +6,7 @@ module Demux_4_a_1
     input [n-1:0] i_Datos_2,
     input [n-1:0] i_Datos_3,
     input [1:0] i_sel, // entrada selectora del mux
-    output reg [n-1:0] o_demux // salida
+        output reg [n-1:0] o_Demux // salida
     );
     
     always @(i_Datos_0, i_Datos_1, i_Datos_2, i_Datos_3, i_sel)
