@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module tb_DecoAnillo;
+module DecoAnillo_TB;
     reg i_Clk;
     reg i_Reset;
     wire [1:0] o_Sel;
