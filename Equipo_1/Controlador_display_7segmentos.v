@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module controlador_display_7segmentos(
+module Controlador_display_7segmentos(
     input [3:0] i_Datos_0,
     input [3:0] i_Datos_1,
     input [3:0] i_Datos_2,
@@ -43,7 +43,7 @@ module controlador_display_7segmentos(
         .o_Demux(Demux_w)
         );
      
-        DecoBin_a_7Seg dec_BCD (
+        DecoBin_7Seg dec_BCD (
         .i_Deco(Demux_w),
         .o_Segmentos(o_Segmentos)
         );
