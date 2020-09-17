@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Prescalador_Tb;
+module Preescalador_Tb;
     reg i_reset;
     reg i_clk;
     wire o_clk_120Hz;
