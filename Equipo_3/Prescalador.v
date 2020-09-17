@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Prescalador #(parameter lim=416666) (
+module Preescalador #(parameter lim=416666) (
     input i_clk,
     input i_reset,
     output reg o_clk_120Hz
