@@ -5,7 +5,7 @@
 // 
 // Create Date: 09.09.2020 10:38:22
 // Design Name: 
-// Module Name: Prescalador
+// Module Name: Preescalador
 // Project Name: Controlador_Display_7Segmentos
 // Target Devices: Basys 3
 // Tool Versions: Vivado 2018.2
@@ -24,7 +24,7 @@ module Preescalador_Tb;
     reg i_Reset;
     reg i_Clk;
     wire o_Clk_120Hz;
-    Prescalador uut(
+    Preescalador uut(
         .i_Reset(i_Reset),
         .i_Clk(i_Clk),
         .o_Clk_120Hz(o_Clk_120Hz)
