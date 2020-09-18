@@ -38,7 +38,8 @@ set_property PACKAGE_PIN U1 [get_ports {i_Datos_3 [1]}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {i_Datos_3 [1]}]
 set_property PACKAGE_PIN T1 [get_ports {i_Datos_3 [2]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {i_Datos_3 [2]}]
-
+set_property PACKAGE_PIN R2 [get_ports {i_Datos_3 [3]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {i_Datos_3 [3]}]
 ## LEDs
 #set_property PACKAGE_PIN U16 [get_ports {led[0]}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {led[0]}]
