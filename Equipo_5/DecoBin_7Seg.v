@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:Universidad AutÛnoma de Zacatecas
+// Company:Universidad Aut√≥noma de Zacatecas
 // Engineers:
 //Agustin Antonio Palafox Molina
-//Jose Alfredo Hernadez DueÒas
-//Jesus Francisco VillaseÒor Correa
-//JosÈ Roberto Novoa LÛpez
-//Julio ¡ngel PÈrez D·vila 
+//Jose Alfredo Hernadez Due√±as
+//Jesus Francisco Villase√±or Correa
+//Jos√© Roberto Novoa L√≥pez
+//Julio √Ångel P√©rez D√°vila 
 // Create Date: 07.09.2020 10:23:49
 // Design Name: 
 //Deco_Bin_7Seg
@@ -29,7 +29,7 @@
 
 module DecoBin_7Seg
  (
-    input [3:0] i_Deco,
+  input [3:0] i_Deco,
     output reg [6:0] o_Segmentos
     );
     
