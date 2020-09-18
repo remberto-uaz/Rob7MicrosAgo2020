@@ -21,24 +21,24 @@
 
 
 module Preescalador_Tb;
-    reg i_reset;
-    reg i_clk;
-    wire o_clk_120Hz;
+    reg i_Reset;
+    reg i_Clk;
+    wire o_Clk_120Hz;
     Prescalador uut(
-        .i_reset(i_reset),
-        .i_clk(i_clk),
-        .o_clk_120Hz(o_clk_120Hz)
+        .i_Reset(i_Reset),
+        .i_Clk(i_Clk),
+        .o_Clk_120Hz(o_Clk_120Hz)
     );
     initial
     begin
-        i_reset<=1;
-        i_clk<=0; //inicializa las entradas
+        i_Reset<=1;
+        i_Clk<=0; //inicializa las entradas
         
-        #20 i_reset<=1; // cuando se activa el reset empieza el prescalador
+        #20 i_Reset<=1; // cuando se activa el reset empieza el prescalador
     end
     always@(*)
     begin
-        #1 i_clk <= ~i_clk; //clk invierte su valor para que el reloj este en constante cambio
+        #1 i_Clk <= ~i_Clk; //clk invierte su valor para que el reloj este en constante cambio
     end
     
 endmodule
