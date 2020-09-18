@@ -21,29 +21,29 @@
 
 
 module Preescalador #(parameter lim=416666) (
-    input i_clk,
-    input i_reset,
-    output reg o_clk_120Hz
+    input i_Clk,
+    input i_Reset,
+    output reg o_Clk_120Hz
 );
 reg [19:0] cuent; // registro para almacenar la cuenta interna del preescalador
 
-always @ ( posedge i_clk, negedge i_reset)
+    always @ ( posedge i_Clk, negedge i_Reset)
 
-    if (~i_reset)
+        if (~i_Reset)
     begin
         cuent <= 0;
-        o_clk_120Hz <= 0;
+        o_Clk_120Hz <= 0;
     end
     
  else if (cuent < lim) //aumenta la cuenta en uno mintras no llegue al limite
      begin
          cuent <= cuent + 1'd1;
-         o_clk_120Hz <= 0;
+         o_Clk_120Hz <= 0;
      end
      
  else // manda un pulso a la salida cuando llega al limite y la cuenta regresa a cero
      begin
          cuent <= 0;
-         o_clk_120Hz <= 1;
+         o_Clk_120Hz <= 1;
      end
 endmodule
