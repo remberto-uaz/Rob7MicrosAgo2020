@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Universidad Autonoma de Zacatecas
-// Engineer: Sergio A. Bernal Adame
+// Company: 
+// Engineer: 
 // 
-// Create Date: 07.09.2020 10:17:12
+// Create Date: 14.09.2020 09:36:26
 // Design Name: 
 // Module Name: DecoAnillo
 // Project Name: 
@@ -18,6 +18,8 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+
+
 module DecoAnillo(
    input i_Reset,
    input i_Clk,
@@ -30,10 +32,10 @@ wire [15:0]x;
 reg [1:0]Clk;  //Declaramos el bus auxiliar tipo reg de 2 bits sel.
 
 //Contador de corrida libre de 2 bits.
-always @(posedge i_Clk or posedge i_Reset)   //Siempre que ocurra el flanco positivo de i_Clk o i_Reset.
-   if(i_Reset)Clk<=0;    //Si se activa Clk el siguiente valor de sel sera 0.
+always @(posedge i_Clk or negedge i_Reset)   //Siempre que ocurra el flanco positivo de i_Clk o i_Reset.
+   if(~i_Reset)Clk<=0;    //Si se activa Clk el siguiente valor de sel sera 0.
    else Clk<=Clk+1;  //De lo contrario el siguiente valor de o_Sel sera sel+1.
-
+ 
 //Multiplexor Quadruple de 4 entradas 1 salidas.
 assign in=x[Clk*4+:4]; //Si sel=2 entonces in=x[2*4+3+:4] o in=x[11:8].
                            //Por lo tanto se seleccionan las 4 entradas correspondientes al display a encender.
