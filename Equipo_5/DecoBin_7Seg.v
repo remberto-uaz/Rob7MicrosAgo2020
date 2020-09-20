@@ -46,7 +46,7 @@ module DecoBin_7Seg
                 4'd7: begin  o_Segmentos <= 7'b0001111; end
                 4'd8: begin  o_Segmentos <= 7'b0000000; end
                 4'd9: begin  o_Segmentos <= 7'b0000100; end
-                4'd10: begin o_Segmentos <= 7'b0001001; end
+               4'd10: begin  o_Segmentos <= 7'b0001000; end
                 4'd11: begin o_Segmentos <= 7'b1100000; end
                 4'd12: begin o_Segmentos <= 7'b0110001; end
                 4'd13: begin o_Segmentos <= 7'b1000010; end
