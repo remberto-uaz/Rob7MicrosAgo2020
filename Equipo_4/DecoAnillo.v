@@ -42,10 +42,10 @@ assign in=x[Clk*4+:4]; //Si sel=2 entonces in=x[2*4+3+:4] o in=x[11:8].
    
 
 //Decodificador de 2 a 4. Selecciona el bit de salida correspondiente.
-   assign o_Anodos=(Clk==0)?4'b0001:   //Si sel es igual a 0 an sera igual a 4'b0001
-             (Clk==1)?4'b0010:   //Si sel es igual a 1 an sera igual a 4'b0010
-             (Clk==2)?4'b0100:   //Si sel es igual a 2 an sera igual a 4'b0100
-                   4'b1000;   //Si sel es igual a 3 an sera igual a 4'b1000
+   assign o_Anodos=(Clk==0)?4'b1000:   //Si sel es igual a 0 an sera igual a 4'b0001
+             (Clk==1)?4'b0100:   //Si sel es igual a 1 an sera igual a 4'b0010
+             (Clk==2)?4'b0010:   //Si sel es igual a 2 an sera igual a 4'b0100
+                   4'b0001;   //Si sel es igual a 3 an sera igual a 4'b1000
 assign o_Sel=(Clk==0)?2'b00:
            (Clk==1)?2'b01:
            (Clk==2)?2'b10:
