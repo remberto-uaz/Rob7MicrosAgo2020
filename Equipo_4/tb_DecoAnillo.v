@@ -42,10 +42,10 @@ module DecoAnillo_TB;
    #1 i_Clk=!i_Clk; 
     initial 
         begin
-            #2 i_Clk=4'b0001;
-            #2 i_Clk=4'b0010;
-            #2 i_Clk=4'b0100;
             #2 i_Clk=4'b1000;
+            #2 i_Clk=4'b0100;
+            #2 i_Clk=4'b0010;
+            #2 i_Clk=4'b0001;
             #2 i_Clk=2'b00;
             #2 i_Clk=2'b01;
             #2 i_Clk=2'b10;
