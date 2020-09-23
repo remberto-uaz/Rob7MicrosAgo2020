@@ -1,6 +1,6 @@
 # MicroUAZ versión Agosto 2020
 
-## Proyecto 2 Microprocesador
+## Práctica 2 Microprocesador
 
 Construir un microprocesador RISC de 8-bits con arquitectura Harvard con el siguiente set de instrucciones.
 
