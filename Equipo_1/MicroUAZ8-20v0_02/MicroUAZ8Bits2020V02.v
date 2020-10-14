@@ -26,7 +26,9 @@ module MicroUAZ8Bits2020V02(
     output [7:0] o_Addres_Instruction_Bus,
     output [7:0] o_DataOut_Bus,
     output [7:0] o_Addres_Data_Bus,
-    output RW
+    output RW,
+     output Clk,
+     output Rst
     );
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 wire [7:0]W_Num;
@@ -52,6 +54,8 @@ controlador(
     .RW(W_RW),
     .Sel_Op_OutBus(W_Sel_Op_OutBus),
     .Sel_DW(W_Sel_DW)
+    .Clk(Clk),
+    .Rst(Rst)
     );
     
 
@@ -77,7 +81,9 @@ registros(
     .RW(W_RW),
     .DW(W_o_DW),
     .Rx(W_RX),
-    .Ry(W_RY)
+    .Ry(W_RY),
+    .Clk(Clk),
+    .Rst(Rst)
 );
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Sel
@@ -99,6 +105,8 @@ controlsalida(
     .NUM(W_Num),
     .o_DataOut_Bus(o_DataOut_Bus),
     .o_Addres_Data_Bus(o_Addres_Data_Bus),
-    .RW(RW)
+    .RW(RW),
+    .Clk(Clk),
+    .Rst(Rst)
 );    
 endmodule
