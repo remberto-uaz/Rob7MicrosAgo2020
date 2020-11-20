@@ -23,14 +23,14 @@
 module Banco_Registros(
     input Rst,
     input Clk,
-    input wire[5:0] SelR, // SelR[2:0]->Rx, SelR[5:3]->Ry  
-    input wire RW, // 0->leer, 1->escribir
-    input wire[7:0] DW,
-    output reg [7:0] Rx,
-    output reg [7:0] Ry
+    input [5:0] SelR, // SelR[2:0]->Rx, SelR[5:3]->Ry  
+    input  RW, // 0->leer, 1->escribir
+    input [7:0] DW,
+    output [7:0] Rx,
+    output [7:0] Ry
     );
     
-    reg [7:0] Rgs [7:0];
+    reg [7:0] Rgs [0:7];
     
     always @(posedge Clk, posedge Rst) begin
         if(Rst) 
@@ -43,18 +43,12 @@ module Banco_Registros(
                 Rgs[5]<=0;
                 Rgs[6]<=0;
                 Rgs[7]<=0; 
-                Rx<=0;
-                Ry<=0;
             end
         else
             if (RW)
-                begin
                     Rgs[SelR[2:0]]<=DW;
-                end
-            else
-                begin
-                    Rx<=Rgs[SelR[2:0]];
-                    Ry<=Rgs[SelR[5:3]];
-                end
     end
+    
+    assign Rx=Rgs[SelR[2:0]];
+    assign Ry=Rgs[SelR[5:3]];
 endmodule
