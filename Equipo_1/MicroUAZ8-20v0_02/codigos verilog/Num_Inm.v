@@ -23,7 +23,7 @@
 module Num_Inm
 #(parameter n = 8 )
 (
-    input [n-1:0] i_Instruction,
+    input [n:0] i_Instruction,
     output reg [n-1:0] NUM
     ); 
     reg [n-1:0]NC; 
