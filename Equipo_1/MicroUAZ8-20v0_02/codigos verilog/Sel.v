@@ -39,7 +39,7 @@ module Sel(
        3'b001 :begin  o_DW<=i_Dato_Bus;end
        3'b010 :begin  o_DW<=i_Num;end
        3'b011 :begin  o_DW<=i_Addres_Instr_Bus;end
-       3'b011 :begin  o_DW<=i_Ry;end
+       3'b100 :begin  o_DW<=i_Ry;end
        default: begin  o_DW<=0;end       
        endcase
        
