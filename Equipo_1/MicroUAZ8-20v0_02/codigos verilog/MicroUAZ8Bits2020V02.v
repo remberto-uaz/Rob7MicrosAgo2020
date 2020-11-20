@@ -21,39 +21,39 @@
 
 
 module MicroUAZ8Bits2020V02(
+    input Clk,
+    input Rst,
     input [8:0] i_Instruction,
     input [7:0] i_Dato_Bus,
     output [7:0] o_Addres_Instruction_Bus,
     output [7:0] o_DataOut_Bus,
     output [7:0] o_Addres_Data_Bus,
-    output RW,
-     output Clk,
-     output Rst
+    output RW
     );
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 wire [7:0]W_Num;
 wire[2:0] W_Sel_DW;
 wire [5:0] W_SelR;
-wire [1:0] W_RW;
+wire  W_RW;
 wire [7:0] W_o_DW;
 wire [7:0] W_RX;   
 wire [7:0] W_RY;  
 wire [2:0] W_sel_OP;  
 wire [7:0] W_R0; 
 wire [2:0] W_Flags; 
-wire [2:0] W_Sel_Op_OutBus;
+wire [1:0] W_Sel_Op_OutBus;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 Control_unit
 controlador(
     .i_Instruction( i_Instruction),
-    .i_Rx(W_RX),
+    .i_Rx(W_RY),
     .Flags(W_Flags),
     .o_Addres_Instr_Bus(o_Addres_Instruction_Bus),
     .Sel_OP(W_sel_OP),
     .SelR(W_SelR),
     .RW(W_RW),
     .Sel_Op_OutBus(W_Sel_Op_OutBus),
-    .Sel_DW(W_Sel_DW)
+    .Sel_DW(W_Sel_DW),
     .Clk(Clk),
     .Rst(Rst)
     );
@@ -62,16 +62,16 @@ controlador(
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ALU
     operaciones(
-    .RX(W_RX),   
-    .RY (W_RY),  
-    .sel_OP(W_sel_OP),  
+    .Rx(W_RX),   
+    .Ry (W_RY),  
+    .Sel_OP(W_sel_OP),  
     .R0(W_R0), 
     .Flags(W_Flags)    
     );
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Num_Inm
 numero(
-    .i_Instruction(o_Addres_Instruction_Bus),
+    .i_Instruction(i_Instruction),
     .NUM(W_Num)
 );
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,14 +99,14 @@ selector(
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Control_b_o
 controlsalida(
+    .Clk(Clk),
+    .Rst(Rst),
     .Sel_Op_OutBus(W_Sel_Op_OutBus),
     .Rx(W_RX),
     .Ry(W_RY),
     .NUM(W_Num),
     .o_DataOut_Bus(o_DataOut_Bus),
     .o_Addres_Data_Bus(o_Addres_Data_Bus),
-    .RW(RW),
-    .Clk(Clk),
-    .Rst(Rst)
+    .RW(RW)
 );    
 endmodule
