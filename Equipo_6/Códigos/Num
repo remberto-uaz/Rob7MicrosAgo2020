@@ -1,0 +1,13 @@
+module Num_Ins
+#(parameter n = 8 )
+(
+    input [n:0] I_Instruction,
+    output reg [n-1:0] NUM
+    ); 
+    reg [n-1:0]NC; 
+ always@* 
+        begin  
+        NC = 8'b0;
+        NUM <= {NC[7:3],I_Instruction[2:0]};  
+        end  
+endmodule
