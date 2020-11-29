@@ -1,0 +1,51 @@
+module deco(
+
+    input Rst,
+    input Clk,
+    input [8:0] I_Instruction,
+    output reg [3:0] Jump,
+    output reg [2:0] Operacion,
+    output reg [5:0] Sel_R,
+    output reg RW,
+    output reg [1:0] SelOut,
+    output reg [2:0] Sel
+    );
+   
+    
+    parameter 
+        LoadRxNum =3'b000,
+        LoadRxARy =3'b001,
+        StoreARxNum =3'b010,
+        StoreARxRy =3'b011,
+        MoveRxRy =3'b100,
+        MathRxOp =3'b101,
+        JumpRxCond =3'b110,
+        NOP =3'b111;
+        
+    always @(I_Instruction) begin
+        case (I_Instruction[8:6])
+        LoadRxNum:begin   
+            Jump<=4'b0001; Operacion<=0; Sel_R<={3'b000,I_Instruction[5:3]}; RW<=1; SelOut<=0; Sel<=3'b010; end
+        LoadRxARy:begin   
+            Jump<=4'b0001; Operacion<=0; Sel_R<={I_Instruction[2:0],I_Instruction[5:3]}; RW<=1; SelOut<=2'b01; Sel<=3'b001; end
+        StoreARxNum:begin 
+            Jump<=4'b0001; Operacion<=0; Sel_R<={3'b000,I_Instruction[5:3]}; RW<=0; SelOut<=2'b10; Sel<=3'b111; end
+        StoreARxRy:begin  
+            Jump<=4'b0001; Operacion<=0; Sel_R<={I_Instruction[2:0],I_Instruction[5:3]}; RW<=0; SelOut<=2'b11; Sel<=3'b111; end
+        MoveRxRy:begin    
+            Jump<=4'b0001; Operacion<=0; Sel_R<={I_Instruction[2:0],I_Instruction[5:3]}; RW<=1; SelOut<=0; Sel<=3'b100; end
+        MathRxOp:begin    
+         Jump<=4'b0001; Operacion<=I_Instruction[2:0]; Sel_R<={I_Instruction[5:3],3'b000}; RW<=1; SelOut<=0; Sel<=3'b000; end
+        JumpRxCond:begin 
+            if(I_Instruction[2:0]==3'b001) 
+                begin  Jump<={1'b1,I_Instruction[2:0]}; Operacion<=0; Sel_R<={I_Instruction[5:3],3'b111}; RW<=1; SelOut<=0; Sel<=3'b011;  end
+            else
+                begin  Jump<={1'b1,I_Instruction[2:0]}; Operacion<=0; Sel_R<={I_Instruction[5:3],3'b000}; RW<=0; SelOut<=0; Sel<=3'b111;  end
+            end                                   
+        NOP:begin     
+            Jump<=4'b0001; Operacion<=0; Sel_R<=0; RW<=0; SelOut<=0; Sel<=3'b111; end
+        default:begin  
+            Jump<=4'b0001; Operacion<=0; Sel_R<=0; RW<=0; SelOut<=0; Sel<=3'b111; end
+        endcase
+    end
+endmodule
