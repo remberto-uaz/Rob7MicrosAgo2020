@@ -1,0 +1,30 @@
+module Memoria_RAM#(
+         parameter AW = 8,   
+         parameter nAddr = 256,   
+         parameter DW = 8)   
+
+       (       
+         input  [AW-1: 0] addr,      
+         input  RW,                  
+         input  [DW-1: 0] dato_in,   
+         output reg [DW-1: 0] dato_out
+         ); 
+
+  reg [DW-1: 0] mem [0:(nAddr-1)];
+
+ initial
+        begin
+            $readmemh("RAM.memoria",mem);
+        end    
+    
+    always @(addr,dato_in,RW) begin
+        if(RW) 
+            begin
+                mem[addr]<=dato_in;
+                dato_out<=mem[addr];
+            end
+        else
+            dato_out<=mem[addr];
+    end
+    
+endmodule
