@@ -1,0 +1,33 @@
+module PcMasterRace(
+    input Clk,
+    input Rst
+);
+
+    wire [8:0] I_Instruction;
+    wire [7:0] I_DatoBus;
+    wire [7:0] O_Addressinstruccion;
+    wire [7:0] AddressData_Bus;
+    wire [7:0] Dataout_Bus;
+    wire RW;
+
+MicroprocesadorUAZ micro(
+    .I_Instruction(I_Instruction),
+    .I_DatoBus(I_DatoBus),
+    .O_Addressinstruccion(O_Addressinstruccion),
+    .AddressData_Bus(AddressData_Bus),
+    .Dataout_Bus(Dataout_Bus),
+    .RW(RW), 
+    .Rst(Rst),
+    .Clk(Clk)
+);
+Memoria_ROM #(256,8,9) MemIns(
+    .addr(O_Addressinstruccion),
+    .dato(I_Instruction)
+    );
+Memoria_RAM #(256,8,8)MemDatos(
+    .dato_in(Dataout_Bus),
+    .addr(AddressData_Bus),
+    .RW(RW),
+    .dato_out(I_DatoBus)
+    );
+endmodule
