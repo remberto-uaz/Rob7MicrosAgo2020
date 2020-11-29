@@ -1,0 +1,89 @@
+module MicroprocesadorUAZ(
+    input [8:0] I_Instruction,
+    input [7:0] I_DatoBus,
+    output [7:0] O_Addressinstruccion,
+    output [7:0] AddressData_Bus,
+    output [7:0] Dataout_Bus,
+    output RW, 
+    input Rst,
+    input Clk
+      
+    );
+/////////////////////////////////////////////////////////////////////////////////
+wire [7:0]W_RX;
+wire [7:0]W_RY;
+wire [2:0]W_Operacion;
+wire [7:0]W_R_res;
+wire [2:0]W_W_flags;
+wire [5:0]W_Sel_R;
+wire W_RW;
+wire [7:0]W_O_DatoW;
+wire [2:0]W_Sel;
+wire [7:0]W_NUM;
+wire [1:0]W_SelOut;
+////////////ALU///////////////////////////////////////////////////////////////
+ALU
+Operaciones(
+    .RX(W_RX),
+    .RY(W_RY),
+    .Operacion(W_Operacion),
+    .R_res(W_R_res),
+    .w_flags(W_W_flags)
+    );
+//////////Salidas////////////////////////////////////////////////////////////
+Admin_De_Salidas
+Salidas(
+    .Clk(Clk),
+    .Rst(Rst),
+    .RX(W_RX),
+    .RY(W_RY),
+    .SelOut(W_SelOut),
+    .Num(W_NUM),
+    .RW(RW),
+    .AddressData_Bus(AddressData_Bus),
+    .Dataout_Bus(Dataout_Bus)
+);
+/////////MUX///////////////////////////////////////////////////////////////
+MUX
+Selector(
+    .RY(W_RY),
+    .NUM(W_NUM),
+    .O_Addressinstruccion(O_Addressinstruccion),
+    .R_res(W_R_res),
+    .I_DatoBus(I_DatoBus),
+    .Sel(W_Sel),
+    .O_DatoW(W_O_DatoW)
+);
+//////////B_Registros//////////////////////////////////////////////////
+B_Registros
+Registros(
+    .Rst(Rst),
+    .Clk(Clk),
+    .O_DatoW(W_O_DatoW),
+    .Sel_R(W_Sel_R),
+    .RW(W_RW),
+    .RX(W_RX),
+    .RY(W_RY)
+);
+//////////Control//////////////////////////////////////////////////
+Control
+Deco_ins(
+    .Rst(Rst),
+    .Clk(Clk),
+    .I_Instruction(I_Instruction),
+    .RX(W_R_res),
+    .w_flags(W_W_flags),
+    .Operacion(W_Operacion),
+    .Sel_R(W_Sel_R),
+    .RW(W_RW),
+    .SelOut(W_SelOut),
+    .Sel(W_Sel),
+    .O_Addressinstruccion(O_Addressinstruccion)
+);
+//////////NUM/////////////////////////////////////////////
+Num_Ins
+numero(
+    .I_Instruction(I_Instruction),
+    .NUM(W_NUM)
+);
+  endmodule
