@@ -1,0 +1,33 @@
+module B_Registros(
+    input Rst,
+    input Clk,
+    input wire[7:0] O_DatoW,
+    input wire[5:0] Sel_R,
+    input wire RW,
+    //input wire [2:0] Sel_Des,
+    output [7:0] RX,
+    output [7:0] RY
+    );
+    
+    reg [7:0] Registro[7:0];
+    
+    always @(posedge Clk, posedge Rst) begin
+    if (Rst)
+        begin
+       Registro[0]<=0;
+       Registro[1]<=0;
+       Registro[2]<=0;
+       Registro[3]<=0;
+       Registro[4]<=0;
+       Registro[5]<=0;
+       Registro[6]<=0;
+       Registro[7]<=0;
+       end
+       
+       else
+            if(RW)
+                 Registro[Sel_R[2:0]]<=O_DatoW;
+       end
+       assign RX=Registro[Sel_R[2:0]];
+       assign RY=Registro[Sel_R[5:3]];
+endmodule
