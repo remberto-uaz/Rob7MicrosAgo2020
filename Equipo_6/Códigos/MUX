@@ -1,0 +1,23 @@
+module MUX(
+
+input [0:7] RY,
+input [0:7] NUM,
+input [0:7] O_Addressinstruccion,
+input [0:7] R_res,
+input [0:7] I_DatoBus,
+input [0:2] Sel,
+output reg [0:7] O_DatoW
+    );  
+    always@(*)
+        begin
+            case(Sel)
+            
+               0: O_DatoW <= R_res;
+               1: O_DatoW <= I_DatoBus;
+               2: O_DatoW <= O_Addressinstruccion;
+               3: O_DatoW <= RY;
+               4: O_DatoW <= NUM;
+               default: O_DatoW <= 0;
+            endcase
+        end 
+endmodule
