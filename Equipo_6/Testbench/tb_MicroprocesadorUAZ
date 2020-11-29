@@ -1,0 +1,47 @@
+module tb_MicroprocesadorUAZ;
+
+reg [8:0] I_Instruction;
+reg [7:0] I_DatoBus;
+wire  [7:0] O_Addressinstruccion;
+wire  [7:0] AddressData_Bus;
+wire  [7:0] Dataout_Bus;
+wire RW;
+reg Rst;
+reg Clk;
+
+MicroprocesadorUAZ uut(
+.I_Instruction(I_Instruction),
+.I_DatoBus(I_DatoBus),
+.O_Addressinstruccion(O_Addressinstruccion),
+.AddressData_Bus(AddressData_Bus),
+.Dataout_Bus(Dataout_Bus),
+.RW(RW),
+.Rst(Rst),
+.Clk(Clk)
+
+);
+
+initial 
+    begin
+    I_Instruction = 0;
+    I_DatoBus = 0;
+    Rst=1;
+    Clk=0;
+    #1 Rst=0;
+        I_Instruction=9'b000000111; 
+        #2 I_Instruction=9'b000001110; 
+        #2 I_Instruction=9'b001010000; 
+           I_DatoBus=10;
+        #2 I_Instruction=9'b010001010; 
+        #2 I_Instruction=9'b011010000; 
+        #2 I_Instruction=9'b100011000; 
+        #2 I_Instruction=9'b101011001; 
+        #2 I_Instruction=9'b110100001; 
+        #2 I_Instruction=9'b111100001; 
+    end
+always 
+    begin 
+    #1 Clk = ~Clk;
+    end 
+endmodule
+
