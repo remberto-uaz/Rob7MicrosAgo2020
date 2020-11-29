@@ -1,0 +1,20 @@
+module tb_PcMasterRace;
+    reg Clk;
+    reg Rst;
+PcMasterRace uut(
+    .Clk(Clk),
+    .Rst(Rst)
+    );
+initial 
+    begin 
+    Clk = 0;
+    Rst = 1;
+    
+    #2 Rst = 0;
+    #20 $finish;    
+    end 
+always 
+    begin 
+    #1 Clk = ~Clk;
+    end 
+endmodule
