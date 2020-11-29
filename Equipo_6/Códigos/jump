@@ -1,0 +1,61 @@
+module jump(
+
+    input Rst,
+    input Clk,
+    input [3:0] Jump,  
+    input [7:0] RX, 
+    input [2:0] w_flags,
+    output [7:0] O_Addressinstruccion
+    );
+    
+    reg [7:0] PC;
+    
+    always @(posedge Clk, posedge Rst) begin
+        if(Rst)
+            PC<=0;
+        else
+            case (Jump)
+                4'b0000:
+                    PC<=PC;
+                4'b0001: 
+                    PC<=PC+1'b1;
+                4'b1000:
+                    PC<=RX;
+                4'b1001:
+                    PC<=RX;
+                4'b1010:
+                    if(w_flags[0])
+                        PC<=RX;
+                    else
+                        PC<=PC+1'b1;
+                4'b1011:
+                    if(~w_flags[0])
+                        PC<=RX;
+                    else
+                            PC<=PC+1'b1;                        
+                4'b1100:
+                    if(w_flags[2])
+                        PC<=RX;
+                    else
+                            PC<=PC+1'b1;                        
+                4'b1101:
+                    if(~w_flags[2])
+                        PC<=RX;
+                    else
+                            PC<=PC+1'b1;                        
+                4'b1110:
+                    if(w_flags[1])
+                        PC<=RX;
+                    else
+                            PC<=PC+1'b1;
+                4'b1111:
+                    if(~w_flags[1])
+                        PC<=RX;
+                    else
+                            PC<=PC+1'b1;
+                default: PC<=PC+1'b1;
+            endcase
+    end
+    assign O_Addressinstruccion=PC;
+    
+endmodule
