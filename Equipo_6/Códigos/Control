@@ -1,0 +1,48 @@
+module Control(
+    input Rst,
+    input Clk,
+    input [8:0] I_Instruction,
+    input [7:0] RX,
+    input [2:0] w_flags,
+    output [2:0] Operacion,
+    output [5:0] Sel_R,
+    output RW,
+    output [1:0] SelOut,
+    output [2:0] Sel,
+    output [7:0] O_Addressinstruccion
+    );
+    
+    wire [3:0] w_Jump;
+    reg [2:0] RFlags;
+    
+    deco c_deco(
+        .Rst(Rst),
+        .Clk(Clk),
+        .I_Instruction(I_Instruction),
+        .Jump(w_Jump),
+        .Operacion(Operacion),
+        .Sel_R(Sel_R),
+        .RW(RW),
+        .SelOut(SelOut),
+        .Sel(Sel)
+        );
+        
+    jump c_jump(
+        .Rst(Rst),
+        .Clk(Clk),
+        .Jump(w_Jump),
+        .RX(RX),
+        .w_flags(w_flags),
+        .O_Addressinstruccion(O_Addressinstruccion)
+        );
+          
+    always @(posedge Clk, posedge Rst) begin
+        if(Rst) 
+            begin
+                RFlags<=0;
+            end
+        else
+            if (I_Instruction[8:6]==3'b101)
+                RFlags<=w_flags;
+    end
+    endmodule
