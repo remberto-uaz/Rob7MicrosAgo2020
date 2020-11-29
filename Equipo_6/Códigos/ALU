@@ -1,0 +1,31 @@
+module ALU(
+input [0:7] RX,
+input [0:7] RY,
+input [0:2] Operacion,
+output  [0:7] R_res,
+output  [0:2] w_flags
+    );
+   
+   reg [8:0]R; 
+  always@(*)
+        begin
+            case(Operacion)
+               
+                0: R <= RY + RX;
+                1: R <= RY - RX;
+                2: R <= RY << RX;
+                3: R <= RY >> RX;
+                4: R <= RY & RX;
+                5: R <= ~RX;
+                6: R <= RY | RX;
+                7: R <= RY ^ RX;
+                
+                endcase
+
+                        end
+                        assign R_res = R[7:0];
+                        assign w_flags[0] = &(~R);
+                        assign w_flags[1] = R[8];
+                        assign w_flags[2] = R[7];
+                        
+endmodule
