@@ -1,0 +1,44 @@
+module tb_Admin_Salidas;
+    reg Rst;
+    reg Clk;
+    reg [7:0] RX;
+    reg [7:0] RY;
+    reg [7:0] Num;
+    reg [1:0] SelOut;
+    wire [7:0] Dataout_Bus;
+    wire [7:0] AddressData_Bus;
+    wire RW;
+    
+    
+    Admin_De_Salidas uut(
+    .Rst(Rst),
+    .Clk(Clk),
+    .RX(RX),
+    .RY(RY),
+    .Num(Num),
+    .SelOut(SelOut),
+    .AddressData_Bus(AddressData_Bus),
+    .Dataout_Bus(Dataout_Bus),
+    .RW(RW)
+    );
+    
+    initial
+        begin
+        Rst=1;
+        Clk=0;
+        RX=0;
+        RY=0;
+        Num=0;
+        SelOut=0;
+        
+        #2 Rst=0; RX=8'd5; RY=8'd6; Num=8'd2; SelOut=0;
+        #2 SelOut=2'b01;
+        #2 SelOut=2'b10;
+        #2 SelOut=2'b11;
+        end
+    
+    always
+        #1 Clk = !Clk;
+
+   
+endmodule
