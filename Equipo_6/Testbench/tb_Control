@@ -1,0 +1,50 @@
+module tb_control;
+
+    reg Rst;
+    reg Clk;
+    reg [8:0] I_Instruction;
+    reg [7:0] RX;
+    reg [2:0] w_flags;
+    wire [2:0] Operacion;
+    wire [5:0] Sel_R;
+    wire RW;
+    wire [1:0] SelOut;
+    wire [2:0] Sel;
+    wire [7:0] O_Addressinstruccion;
+    
+    Control uut(
+    .Rst(Rst),
+    .Clk(Clk),
+    .I_Instruction(I_Instruction),
+    .RX(RX),
+    .w_flags(w_flags),
+    .Operacion(Operacion),
+    .Sel_R(Sel_R),
+    .RW(RW),
+    .SelOut(SelOut),
+    .Sel(Sel),
+    .O_Addressinstruccion(O_Addressinstruccion)
+    );
+    
+    initial
+        begin
+        Rst=1;
+        Clk=0;
+        I_Instruction=0;
+        RX=0;
+        w_flags=0;
+        
+        #1 Rst=0; I_Instruction=9'b000001100; 
+        #2 I_Instruction=9'b001010001; 
+        #2 I_Instruction=9'b010011010; 
+        #2 I_Instruction=9'b011111110; 
+        #2 I_Instruction=9'b100001010; 
+        #2 I_Instruction=9'b101011001; 
+        #2 I_Instruction=9'b110100001; 
+        #2 I_Instruction=9'b111100001; 
+         
+        end
+    
+    always
+        #1 Clk = !Clk;
+endmodule
