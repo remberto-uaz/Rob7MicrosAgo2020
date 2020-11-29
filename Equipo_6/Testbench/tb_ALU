@@ -1,0 +1,31 @@
+module tb_ALU;
+reg [0:7] RX;
+reg [0:7] RY;
+reg [0:2] Operacion;
+wire [0:7] R_res;
+wire [0:2] w_flags;
+
+ALU uut(
+.RX(RX),
+.RY(RY),
+.Operacion(Operacion),
+.R_res(R_res),
+.w_flags(w_flags)
+);
+
+initial 
+    begin
+    RX =0;
+    RY =0;
+    Operacion =0;
+    
+    #2 RX= 8'b11111010; RY= 8'b11110011; Operacion= 0;
+    #2 RX= 8'd2; RY= 8'd1; Operacion= 1;
+    #2 RX= 8'd1; RY= 8'd2; Operacion= 2;
+    #2 RX= 8'd1; RY= 8'd2; Operacion= 3;
+    #2 RX= 8'd1; RY= 8'd2; Operacion= 4;
+    #2 RX= 8'd1; RY= 8'd2; Operacion= 5;
+    #2 RX= 8'd1; RY= 8'd2; Operacion= 6;
+    #2 RX= 8'd1; RY= 8'd2; Operacion= 7;
+        end
+        endmodule
