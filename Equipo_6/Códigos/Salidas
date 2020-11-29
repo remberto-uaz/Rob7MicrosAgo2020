@@ -1,0 +1,51 @@
+module Admin_De_Salidas(
+
+    input Clk,
+    input Rst,
+    input wire [7:0] RX,
+    input wire [7:0] RY,
+    input wire [1:0] SelOut,
+    input wire [7:0] Num,
+    output reg RW,
+    output reg [7:0] AddressData_Bus,
+    output reg [7:0] Dataout_Bus
+    
+    );
+    
+     always @(posedge Clk, posedge Rst) begin
+           if(Rst) 
+               begin
+                     Dataout_Bus<=0;
+                     AddressData_Bus<=0;
+                     RW<=0;
+               end
+              else
+               case (SelOut)
+               2'b00:
+               begin
+                Dataout_Bus<=0;
+                AddressData_Bus<=0;
+                RW<=0;
+               end
+               2'b01:
+               begin
+                Dataout_Bus<=0;
+                AddressData_Bus<=RY;
+               RW<=0;
+               end
+               2'b10:
+               begin
+               Dataout_Bus<=Num;
+               AddressData_Bus<=RX;
+               RW<=1;
+               end
+               2'b11:
+               begin
+               Dataout_Bus<=RY;
+               AddressData_Bus<=RX;
+               RW<=1;
+               end
+               endcase
+               end
+
+endmodule
