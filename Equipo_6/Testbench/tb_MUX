@@ -1,0 +1,44 @@
+module tb_MUX;
+reg [0:7] RY;
+reg [0:7] NUM;
+reg [0:7] O_Addressinstruccion;
+reg [0:7] R_res;
+reg [0:7] I_DatoBus;
+reg [0:2] Sel;
+wire [0:7] O_DatoW;
+
+MUX uut(
+ .RY(RY),
+ .NUM(NUM),
+ .O_Addressinstruccion(O_Addressinstruccion),
+ .R_res(R_res),
+ .I_DatoBus(I_DatoBus),
+ .Sel(Sel),
+ .O_DatoW(O_DatoW)
+);
+
+initial
+   begin
+Sel = 3'd0;
+R_res = 8'd0;
+NUM = 8'd2;
+I_DatoBus = 8'd1;
+RY =8'd4;
+O_Addressinstruccion = 8'd3;
+
+
+#2
+   Sel = 3'd1;
+#2
+   Sel = 3'd2;
+#2
+   Sel = 3'd3;
+#2
+   Sel = 3'd4;
+
+
+
+
+    end
+
+endmodule
