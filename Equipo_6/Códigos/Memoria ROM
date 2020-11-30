@@ -1,13 +1,9 @@
-module Memoria_ROM#(
-    parameter AW = 8,   
-    parameter nAddr = 256,   
-    parameter DW = 9)
-    ( 
-    input  [AW-1:0] addr,
+module Memoria_ROM #(parameter nAddr = 256, AW = 8, DW= 9)(
+    input [AW-1:0] addr,
     output reg [DW-1:0] dato
     );
-    //////memoria y parametro del fichero contenedor///
-reg [(DW-1):0]mem[0:(nAddr-1)];
+    
+    reg [(DW-1):0]mem[0:(nAddr-1)];
     
     initial
         begin
