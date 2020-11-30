@@ -1,0 +1,69 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 21.11.2020 13:53:12
+// Design Name: 
+// Module Name: tb_Micro8bits_Harvard
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_Micro8bits_Harvard;
+
+    reg clk;
+    reg rst;
+    reg [8:0] i_instruccion;
+    reg [7:0] i_dato;
+    wire [7:0] o_direccion_instruccion;
+    wire [7:0] o_salida_datos;
+    wire [7:0] o_direccion_datos;
+    wire RW;
+    
+    
+   Micro8bits_Harvard uut 
+    (
+     .clk(clk),                           
+     .rst(rst),                           
+     .i_instruccion(i_instruccion),           
+     .i_dato(i_dato),                  
+     .o_direccion_instruccion(o_direccion_instruccion),
+     .o_salida_datos(o_salida_datos),         
+     .o_direccion_datos(o_direccion_datos),      
+     .RW(RW)
+     );
+       
+    initial
+        begin
+            rst=1;
+            clk=0;
+            i_instruccion = 0;
+            i_dato = 0;
+        
+            #1 rst = 0; i_instruccion = 9'b000_000_111; //load Rx Num
+            #2 i_instruccion = 9'b000_001_110; //load Rx Num
+            #2 i_instruccion = 9'b001_010_000; // load Rx [Ry]
+               i_dato = 10;
+            #2 i_instruccion = 9'b010_001_010; // store [Rx] Num
+            #2 i_instruccion = 9'b011_010_000; // store [Rx] Ry
+            #2 i_instruccion = 9'b100_011_000; // move Rx Ry
+            #2 i_instruccion = 9'b101_011_001; // Math Rx OP
+            #2 i_instruccion = 9'b110_100_001; // Jump [Rx] Cond
+            #2 i_instruccion = 9'b111_100_001; // Nop
+        
+        end
+    
+    always
+        #1 clk = !clk;                        
+endmodule
