@@ -7,5 +7,4 @@ Nombre de de los integrantes
 
 <li>Jesus Francisco Villaseñor Correa</li>
 
-<li>Julio Ángel Pérez Dávila </li>
-</ul>
+</u1>
